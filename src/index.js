@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
 import { PublicPage, Movies, Profile, HomePage } from "./pages";
 
 import LoginPage from "./loginPage";
+import SignUpPage from "./signUpPage";
 import AuthProvider from "./authContext";
 import AuthHeader from "./authHeader";
 import ProtectedRoutes from "./protectedRoutes";
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/public" element={ <PublicPage /> } />
           <Route path="/" element={ <HomePage /> } />
           <Route path="/login" element={ <LoginPage /> } />
+          <Route path="/signup" element={ <SignUpPage /> } />
 
           <Route element={<ProtectedRoutes />}>
             <Route path="/movies" element={<Movies />} />
