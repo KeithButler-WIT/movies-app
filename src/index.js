@@ -5,6 +5,7 @@ import { PublicPage, Movies, Profile, HomePage } from "./pages";
 
 import LoginPage from "./loginPage";
 import SignUpPage from "./signUpPage";
+import MovieProvider from "./moviesContext";
 import AuthProvider from "./authContext";
 import AuthHeader from "./authHeader";
 import ProtectedRoutes from "./protectedRoutes";
@@ -28,6 +29,7 @@ const App = () => {
             <Link to="/profile">Profile</Link>
           </li>
         </ul>
+    <MovieProvider>
         <Routes>
           <Route path="/public" element={ <PublicPage /> } />
           <Route path="/" element={ <HomePage /> } />
@@ -41,6 +43,7 @@ const App = () => {
 
           <Route path="*" element={ <Navigate to="/" /> } />
         </Routes>
+    </MovieProvider>
       </AuthProvider>
     </BrowserRouter>
   );
