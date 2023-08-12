@@ -31,3 +31,31 @@ export const getMovies = () => {
         console.log(error);
     });
 };
+
+export const getPersons = () => {
+    return fetch(
+       '/api/persons', {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then(res => {
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+    });
+};
+
+export const getTvs = () => {
+    return fetch(
+       '/api/tvs', {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then(res => {
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+    });
+};

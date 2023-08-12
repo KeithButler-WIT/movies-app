@@ -1,38 +1,38 @@
 import React, { createContext, useEffect, useReducer, useContext } from "react";
-import { getMovies } from "./api/movie-api";
+import { getTvs } from "./api/movie-api";
 import { AuthContext } from './authContext';
 
-export const MoviesContext = createContext(null);
+export const TvsContext = createContext(null);
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "load":
-      return { movies: action.payload.result };
+      return { tvs: action.payload.result };
     default:
       return state;
   }
 };
 
-const MoviesContextProvider = props => {
+const TvsContextProvider = props => {
   const context = useContext(AuthContext);
 
-  const [state, dispatch] = useReducer(reducer, { movies: []});
+  const [state, dispatch] = useReducer(reducer, { tvs: []});
 
   useEffect(() => {
-    getMovies().then(result => {
+    getTvs().then(result => {
       dispatch({ type: "load", payload: {result}});
     });
   },[context.isAuthenticated]);
 
   return (
-    <MoviesContext.Provider
+    <TvsContext.Provider
       value={{
-        movies: state.movies,
+        tvs: state.tvs,
       }}
     >
       {props.children}
-    </MoviesContext.Provider>
+    </TvsContext.Provider>
   );
 };
 
-export default MoviesContextProvider
+export default TvsContextProvider
