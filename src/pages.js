@@ -1,8 +1,8 @@
 import React from 'react';
 import { useContext} from 'react';
-import { MoviesContext } from './moviesContext';
-import { TvsContext } from './tvsContext';
-import { PersonsContext  } from './personsContext';
+import { MoviesContext } from './contexts/moviesContext';
+import { TvsContext } from './contexts/tvsContext';
+import { PersonsContext  } from './contexts/personsContext';
 
 export const PublicPage = () => {
     return <h2>Public page</h2>

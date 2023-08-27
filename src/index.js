@@ -1,66 +1,87 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
 import { PublicPage, Movies, Tvs, Persons, Profile, HomePage } from "./pages";
 
 import LoginPage from "./loginPage";
 import SignUpPage from "./signUpPage";
-import MovieProvider from "./moviesContext";
-import TvProvider from "./tvsContext";
-import PersonProvider from "./personsContext";
-import AuthProvider from "./authContext";
+// import MovieProvider from "./moviesContext";
+// import TvProvider from "./tvsContext";
+// import PersonProvider from "./personsContext";
+import AuthProvider from "./contexts/authContext";
 import AuthHeader from "./authHeader";
 import ProtectedRoutes from "./protectedRoutes";
 
+import React from "react";
+import {createRoot} from "react-dom/client";
+import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
+// import HomePage from "./pages/homePage";
+// import Movies from "./pages/movieDetailsPage";
+// import Tvs from "./pages/tvShowDetailsPage";
+// import Persons from "./pages/personDetailsPage";
+import MovieReviewPage from "./pages/movieReviewPage";
+import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
+import FavouriteMoviesPage from "./pages/favouriteMoviesPage";
+// import FavouriteActorsPage from "./pages/favouriteActorsPage";
+// import PlaylistMoviesPage from "./pages/playlistMoviesPage";
+// import PopularMoviesPage from "./pages/popularMoviesPage";
+// import PopularTvShowsPage from "./pages/popularTvShowsPage";
+// import PopularActorsPage from "./pages/popularActorsPage";
+import {Link} from 'react-router-dom';
+import SiteHeader from './components/siteHeader';
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools';
+import MovieProvider from "./contexts/moviesContext";
+import PersonProvider from "./contexts/personsContext";
+import TvProvider from "./contexts/tvsContext";
+import AddMovieReviewPage from './pages/addMovieReviewPage'
+
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 360000,
+      refetchInterval: 360000,
+      refetchOnWindowFocus: false
+    },
+  },
+});
+
 const App = () => {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <AuthHeader />
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/public">Public</Link>
-          </li>
-          <li>
-            <Link to="/movies">Movies</Link>
-          </li>
-          <li>
-            <Link to="/tvs">Tv Shows</Link>
-          </li>
-          <li>
-            <Link to="/persons">Actors</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-        </ul>
-        <MovieProvider>
-        <TvProvider>
-        <PersonProvider>
-            <Routes>
-              <Route path="/public" element={ <PublicPage /> } />
-              <Route path="/" element={ <HomePage /> } />
-              <Route path="/login" element={ <LoginPage /> } />
-              <Route path="/signup" element={ <SignUpPage /> } />
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <AuthProvider>
+          <AuthHeader />
+          <SiteHeader />
+          <MovieProvider>
+          <TvProvider>
+          <PersonProvider>
+              <Routes>
+                <Route path="/public" element={ <PublicPage /> } />
+                <Route path="/" element={ <HomePage /> } />
+                <Route path="/login" element={ <LoginPage /> } />
+                <Route path="/signup" element={ <SignUpPage /> } />
 
-              <Route element={<ProtectedRoutes />}>
-                <Route path="/movies" element={<Movies />} />
-                <Route path="/tvs" element={<Tvs />} />
-                <Route path="/persons" element={<Persons />} />
-                <Route path="/profile" element={<Profile />} />
-              </Route>
+                <Route element={<ProtectedRoutes />}>
+                  <Route path="/movies" element={<Movies />} />
+                  <Route path="/tvs" element={<Tvs />} />
+                  <Route path="/persons" element={<Persons />} />
+                  <Route path="/profile" element={<Profile />} />
+                </Route>
 
-              <Route path="*" element={ <Navigate to="/" /> } />
-            </Routes>
-        </PersonProvider>
-        </TvProvider>
-        </MovieProvider>
-      </AuthProvider>
-    </BrowserRouter>
+                <Route path="*" element={ <Navigate to="/" /> } />
+              </Routes>
+          </PersonProvider>
+          </TvProvider>
+          </MovieProvider>
+        </AuthProvider>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// ReactDOM.render(<App />, document.getElementById("root"));
+const rootElement = createRoot(document.getElementById("root"));
+rootElement.render(<App />);
