@@ -32,11 +32,25 @@ export const getMovies = () => {
     });
 };
 
-// TODO getMovie
+export const getMovie = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+       `/api/movies/${id}`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then(res => {
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+    });
+};
 
 export const getUpcomingMovies = () => {
     return fetch(
-       '/api/movies', {
+       '/api/movies/tmdb/upcoming', {
             headers: {
                 'Authorization': window.localStorage.getItem('token')
             }
@@ -62,9 +76,41 @@ export const getPersons = () => {
     });
 };
 
+export const getPerson = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+       `/api/persons/${id}`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then(res => {
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+    });
+};
+
 export const getTvs = () => {
     return fetch(
        '/api/tvs', {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then(res => {
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+    });
+};
+
+export const getTv = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+       `/api/tvs/${id}`, {
             headers: {
                 'Authorization': window.localStorage.getItem('token')
             }
