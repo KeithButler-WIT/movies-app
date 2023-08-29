@@ -32,6 +32,22 @@ export const getMovies = () => {
     });
 };
 
+// TODO getMovie
+
+export const getUpcomingMovies = () => {
+    return fetch(
+       '/api/movies', {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then(res => {
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+    });
+};
+
 export const getPersons = () => {
     return fetch(
        '/api/persons', {

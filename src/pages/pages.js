@@ -1,8 +1,9 @@
 import React from 'react';
 import { useContext} from 'react';
-import { MoviesContext } from './contexts/moviesContext';
-import { TvsContext } from './contexts/tvsContext';
-import { PersonsContext  } from './contexts/personsContext';
+import { MoviesContext } from '../contexts/moviesContext';
+import { UpcomingMoviesContext } from '../contexts/upcomingMoviesContext';
+import { TvsContext } from '../contexts/tvsContext';
+import { PersonsContext  } from '../contexts/personsContext';
 
 export const PublicPage = () => {
     return <h2>Public page</h2>
@@ -27,6 +28,29 @@ export const Movies = () => {
     }
     return <>
         <h2>Movies Data</h2>
+        {movies}
+    </>
+}
+
+export const UpcomingMovies = () => {
+    const context = useContext(UpcomingMoviesContext);
+    let movies = "";
+    if (context.movies){
+        movies = (
+            <div>
+                {context.movies.map(movie => { return <>{movie.id},{movie.title}<br /></> })}
+            </div>
+        )
+    }
+    else {
+        movies = (
+            <div>
+                Movies are loading
+            </div>
+        )
+    }
+    return <>
+        <h2>Upcoming Movies Data</h2>
         {movies}
     </>
 }
