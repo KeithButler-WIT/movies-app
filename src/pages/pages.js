@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext} from 'react';
 import { MoviesContext } from '../contexts/moviesContext';
 import { UpcomingMoviesContext } from '../contexts/upcomingMoviesContext';
+import { FavouriteMoviesContext } from '../contexts/favouriteMoviesContext';
 import { TvsContext } from '../contexts/tvsContext';
 import { PersonsContext  } from '../contexts/personsContext';
 
@@ -51,6 +52,29 @@ export const UpcomingMovies = () => {
     }
     return <>
         <h2>Upcoming Movies Data</h2>
+        {movies}
+    </>
+}
+
+export const FavouriteMovies = () => {
+    const context = useContext(UpcomingMoviesContext);
+    let movies = "";
+    if (context.movies){
+        movies = (
+            <div>
+                {context.movies.map(movie => { return <>{movie.id},{movie.title}<br /></> })}
+            </div>
+        )
+    }
+    else {
+        movies = (
+            <div>
+                Movies are loading
+            </div>
+        )
+    }
+    return <>
+        <h2>Favourite Movies Data</h2>
         {movies}
     </>
 }

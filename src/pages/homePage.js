@@ -1,5 +1,5 @@
 import React from "react";
-import { getMovies } from "../api/movies-api";
+import { getMovies } from "../api/movie-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
@@ -8,7 +8,7 @@ import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist'
 
 const HomePage = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  const { data, error, isLoading, isError }  = useQuery('discover', getMovies)
 
   if (isLoading) {
     return <Spinner />
@@ -17,6 +17,7 @@ const HomePage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }
+
   const movies = data.results;
 
   // Redundant, but necessary to avoid app crashing.
