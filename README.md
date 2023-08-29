@@ -1,5 +1,12 @@
-This archive contains the code demonstrating a custom solution for protected routes and authentication in a React app. 
+# Movies App
 
-Run npm install followed by npm start. 
+To start the app run the following commands:
 
-NOTE: REQUIRES SOLUTION FOR LAST LAB RUNNING ON localhost:8080
+```sh
+npm install
+npm start
+```
+
+NOTE: Requires the movies api to work. [API LINK](https://github.com/KeithButler-WIT/movies-api)
+
+<!-- ,"proxy":"http://localhost:8080" -->
