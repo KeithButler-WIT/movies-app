@@ -18,7 +18,7 @@ const HomePage = (props) => {
     return <h1>{error.message}</h1>
   }
 
-  const movies = data.results;
+  const movies = data;
 
   // Redundant, but necessary to avoid app crashing.
   const favourites = movies.filter(m => m.favourite)

@@ -1,20 +1,20 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
-import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
+// import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 // import React from "react";
 // import ReactDOM from "react-dom";
-// import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
-import { HomePage, Movies, UpcomingMovies, PublicPage, Tvs, Persons, Profile } from "./pages/pages";
+import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
+import { Movies, UpcomingMovies, PublicPage, Tvs, Persons, Profile } from "./pages/pages";
 
-import LoginPage from "./loginPage";
-import SignUpPage from "./signUpPage";
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signUpPage";
 // import MovieProvider from "./moviesContext";
 // import TvProvider from "./tvsContext";
 // import PersonProvider from "./personsContext";
 import AuthProvider from "./contexts/authContext";
 import AuthHeader from "./authHeader";
 import ProtectedRoutes from "./protectedRoutes";
-// import HomePage from "./pages/homePage";
+import HomePage from "./pages/homePage";
 // import Movies from "./pages/movieDetailsPage";
 // import Tvs from "./pages/tvShowDetailsPage";
 // import Persons from "./pages/personDetailsPage";
@@ -26,7 +26,7 @@ import FavouriteMoviesPage from "./pages/favouriteMoviesPage";
 // import PopularMoviesPage from "./pages/popularMoviesPage";
 // import PopularTvShowsPage from "./pages/popularTvShowsPage";
 // import PopularActorsPage from "./pages/popularActorsPage";
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import SiteHeader from './components/siteHeader';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -61,14 +61,14 @@ const App = () => {
               <Routes>
                 <Route path="/login" element={ <LoginPage /> } />
                 <Route path="/signup" element={ <SignUpPage /> } />
-
                 <Route path="/movies" element={<Movies />} />
-                <Route path="/movies/tmdb/upcoming" element={<UpcomingMovies />} />
-                <Route path="/tvs" element={<Tvs />} />
-                <Route path="/persons" element={<Persons />} />
-                <Route path="/profile" element={<Profile />} />
+                  <Route path="/movies/tmdb/upcoming" element={<UpcomingMovies />} />
+
                 <Route element={<ProtectedRoutes />}>
                   {/* <Route path="/movies/favourites" element={<Movies />} /> */}
+                  <Route path="/tvs" element={<Tvs />} />
+                  <Route path="/persons" element={<Persons />} />
+                  <Route path="/profile" element={<Profile />} />
                 </Route>
 
                 <Route path="/public" element={ <PublicPage /> } />

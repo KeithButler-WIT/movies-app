@@ -56,28 +56,28 @@ export const UpcomingMovies = () => {
     </>
 }
 
-export const FavouriteMovies = () => {
-    const context = useContext(UpcomingMoviesContext);
-    let movies = "";
-    if (context.movies){
-        movies = (
-            <div>
-                {context.movies.map(movie => { return <>{movie.id},{movie.title}<br /></> })}
-            </div>
-        )
-    }
-    else {
-        movies = (
-            <div>
-                Movies are loading
-            </div>
-        )
-    }
-    return <>
-        <h2>Favourite Movies Data</h2>
-        {movies}
-    </>
-}
+// export const FavouriteMovies = () => {
+//     const context = useContext(FavouriteMoviesContext);
+//     let movies = "";
+//     if (context.movies){
+//         movies = (
+//             <div>
+//                 {context.movies.map(movie => { return <>{movie.id},{movie.title}<br /></> })}
+//             </div>
+//         )
+//     }
+//     else {
+//         movies = (
+//             <div>
+//                 Movies are loading
+//             </div>
+//         )
+//     }
+//     return <>
+//         <h2>Favourite Movies Data</h2>
+//         {movies}
+//     </>
+// }
 
 export const Tvs = () => {
     const context = useContext(TvsContext);

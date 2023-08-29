@@ -1,7 +1,7 @@
 export const login = (username, password) => {
-    return fetch('/api/users', {
+    return fetch(`/api/users`, {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': `application/json`
         },
         method: 'post',
         body: JSON.stringify({ username: username, password: password })
@@ -9,9 +9,9 @@ export const login = (username, password) => {
 };
 
 export const signup = (username, password) => {
-    return fetch('/api/users?action=register', {
+    return fetch(`/api/users?action=register`, {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': `application/json`
         },
         method: 'post',
         body: JSON.stringify({ username: username, password: password })
@@ -20,15 +20,19 @@ export const signup = (username, password) => {
 
 export const getMovies = () => {
     return fetch(
-       '/api/movies', {
+       `/api/movies`, {
             headers: {
                 'Authorization': window.localStorage.getItem('token')
-            }
+            },
         }
-    ).then(res => {
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
         return res.json();
     }).catch((error) => {
         console.log(error);
+        throw error;
     });
 };
 
@@ -41,38 +45,50 @@ export const getMovie = (args) => {
                 'Authorization': window.localStorage.getItem('token')
             }
         }
-    ).then(res => {
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
         return res.json();
     }).catch((error) => {
         console.log(error);
+        throw error;
     });
 };
 
 export const getUpcomingMovies = () => {
     return fetch(
-       '/api/movies/tmdb/upcoming', {
+       `/api/movies/tmdb/upcoming`, {
             headers: {
                 'Authorization': window.localStorage.getItem('token')
             }
         }
-    ).then(res => {
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
         return res.json();
     }).catch((error) => {
         console.log(error);
+        throw error;
     });
 };
 
 export const getPersons = () => {
     return fetch(
-       '/api/persons', {
+       `/api/persons`, {
             headers: {
                 'Authorization': window.localStorage.getItem('token')
             }
         }
-    ).then(res => {
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
         return res.json();
     }).catch((error) => {
         console.log(error);
+        throw error;
     });
 };
 
@@ -86,23 +102,31 @@ export const getPerson = (args) => {
             }
         }
     ).then(res => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
         return res.json();
     }).catch((error) => {
         console.log(error);
+        throw error;
     });
 };
 
 export const getTvs = () => {
     return fetch(
-       '/api/tvs', {
+       `/api/tvs`, {
             headers: {
                 'Authorization': window.localStorage.getItem('token')
             }
         }
     ).then(res => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
         return res.json();
     }).catch((error) => {
         console.log(error);
+        throw error;
     });
 };
 
@@ -116,8 +140,12 @@ export const getTv = (args) => {
             }
         }
     ).then(res => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
         return res.json();
     }).catch((error) => {
         console.log(error);
+        throw error;
     });
 };

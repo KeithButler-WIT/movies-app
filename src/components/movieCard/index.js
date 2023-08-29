@@ -23,22 +23,24 @@ export default function MovieCard({ movie, action }) {
   const { playlist, addToPlaylist } = useContext(MoviesContext);
 
 
-  if (favourites.find((id) => id === movie.id)) {
-    movie.favourite = true;
-  } else {
-    movie.favourite = false
-  }
+  // TODO Fix favourites
+  // if (favourites.find((id) => id === movie.id)) {
+  //   movie.favourite = true;
+  // } else {
+  //   movie.favourite = false
+  // }
 
   const handleAddToFavourite = (e) => {
     e.preventDefault();
     addToFavourites(movie);
   };
 
-  if (playlist.find((id) => id === movie.id)) {
-    movie.playlist = true;
-  } else {
-    movie.playlist = false
-  }
+  // TODO Fix playlist
+  // if (playlist.find((id) => id === movie.id)) {
+  //   movie.playlist = true;
+  // } else {
+  //   movie.playlist = false
+  // }
 
   const handleAddToPlaylist = (e) => {
     e.preventDefault();
