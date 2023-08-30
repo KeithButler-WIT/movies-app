@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import TvShowDetails from "../components/tvShowDetails/";
 import PageTemplate from "../components/templateTvShowPage";
-import { getTvShow } from '../api/tmdb-api'
+import { getTvShow } from '../api/movie-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 

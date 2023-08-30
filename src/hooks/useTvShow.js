@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {getTvShow} from '../api/tmdb-api'
+import {getTvShow} from '../api/movie-api'
 
 const useTvShow = id => {
   const [TvShow, setTvShow] = useState(null);
