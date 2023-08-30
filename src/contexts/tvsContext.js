@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer, useContext } from "react";
+import React, { useState, createContext, useEffect, useReducer, useContext } from "react";
 import { getTvs } from "../api/movie-api";
 import { AuthContext } from './authContext';
 
@@ -18,6 +18,24 @@ const TvsContextProvider = props => {
 
   const [state, dispatch] = useReducer(reducer, { tvs: []});
 
+  // const [favourites, setFavourites] = useState( [] )
+
+  // const addToFavourites = (show) => {
+  //   let newFavourites = [...favourites];
+  //   if (!favourites.includes(show.id)) {
+  //     newFavourites.push(show.id);
+  //   }
+  //   setFavourites(newFavourites);
+  // };
+
+  // // We will use this function in a later section
+  // const removeFromFavourites = (show) => {
+  //   setFavourites( favourites.filter(
+  //     (mId) => mId !== show.id
+  //   ) )
+  // };
+
+
   useEffect(() => {
     getTvs().then(result => {
       dispatch({ type: "load", payload: {result}});
@@ -26,11 +44,13 @@ const TvsContextProvider = props => {
 
   return (
     <TvsContext.Provider
-      value={{
-        tvs: state.tvs,
-      }}
+        value={{
+        /* favourites, */
+        /* addToFavourites, */
+        /* removeFromFavourites, */
+        }}
     >
-      {props.children}
+        {props.children}
     </TvsContext.Provider>
   );
 };
