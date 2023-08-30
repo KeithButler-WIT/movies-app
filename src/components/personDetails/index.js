@@ -19,7 +19,7 @@ import Typography from "@mui/material/Typography";
 //     margin: 0,
 // };
 
-const ActorDetails = ({ actor }) => {  // Don't miss this!
+const PersonDetails = ({ person }) => {  // Don't miss this!
 
   return (
     <>
@@ -28,7 +28,7 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
       </Typography>
 
       <Typography variant="h6" component="p">
-        {actor.overview}
+        {person.overview}
       </Typography>
      <Fab
         color="secondary"
@@ -45,4 +45,4 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
   );
 };
 
-export default ActorDetails ;
+export default PersonDetails ;

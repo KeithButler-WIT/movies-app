@@ -13,45 +13,46 @@ import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
-import { ActorsContext } from "../../contexts/actorsContext";
+import { PersonsContext } from "../../contexts/personsContext";
 
 
-export default function ActorCard({ actor, action }) {
-  const { favourites, addToFavourites } = useContext(ActorsContext);
+export default function PersonCard({ person, action }) {
+  const { favourites, addToFavourites } = useContext(PersonsContext);
 
 
-  if (favourites.find((id) => id === actor.id)) {
-    actor.favourite = true;
-  } else {
-    actor.favourite = false
-  }
+  // if (favourites.find((id) => id === person.id)) {
+  //   person.favourite = true;
+  // } else {
+  //   person.favourite = false
+  // }
 
-  const handleAddToFavourite = (e) => {
-    e.preventDefault();
-    addToFavourites(actor);
-  };
+  // const handleAddToFavourite = (e) => {
+  //   e.preventDefault();
+  //   addToFavourites(person);
+  // };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
           avatar={
-            actor.favourite ? (
-              <Avatar sx={{ backgroundColor: 'red' }}>
-                {action(actor)}
-              </Avatar>
-            ): null
+            null
+            /* person.favourite ? ( */
+            /*   <Avatar sx={{ backgroundColor: 'red' }}> */
+            /*     {action(person)} */
+            /*   </Avatar> */
+            /* ): null */
           }
           title={
             <Typography variant="h5" component="p">
-              {actor.name}{" "}
+              {person.name}{" "}
             </Typography>
           }
       />
       <CardMedia
         sx={{ height: 500 }}
         image={
-          actor.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
+          person.profile_path
+            ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
             : img
         }
       />
@@ -60,7 +61,7 @@ export default function ActorCard({ actor, action }) {
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "}{actor.popularity}{" "}
+              {"  "}{person.popularity}{" "}
             </Typography>
           </Grid>
           <Grid item xs={6}>
@@ -68,9 +69,9 @@ export default function ActorCard({ actor, action }) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}>
-          <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton>
+        {/* <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}> */}
+        {/*   <FavoriteIcon color="primary" fontSize="large" /> */}
+        {/* </IconButton> */}
       </CardActions>
     </Card>
   );

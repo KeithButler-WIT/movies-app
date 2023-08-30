@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer, useContext } from "react";
+import React, { useState, createContext, useEffect, useReducer, useContext } from "react";
 import { getPersons } from "../api/movie-api";
 import { AuthContext } from './authContext';
 
@@ -18,6 +18,22 @@ const PersonsContextProvider = props => {
 
   const [state, dispatch] = useReducer(reducer, { persons: []});
 
+  // const [favourites, setFavourites] = useState( [] )
+
+  // const addToFavourites = (actor) => {
+  //   let newFavourites = [...favourites];
+  //   if (!favourites.includes(actor.id)) {
+  //     newFavourites.push(actor.id);
+  //   }
+  //   setFavourites(newFavourites);
+  // };
+
+  // const removeFromFavourites = (actor) => {
+  //   setFavourites( favourites.filter(
+  //     (mId) => mId !== actor.id
+  //   ) )
+  // };
+
   useEffect(() => {
     getPersons().then(result => {
       dispatch({ type: "load", payload: {result}});
@@ -26,11 +42,13 @@ const PersonsContextProvider = props => {
 
   return (
     <PersonsContext.Provider
-      value={{
-        persons: state.persons,
-      }}
+        value={{
+        /* favourites, */
+        /* addToFavourites, */
+        /* removeFromFavourites, */
+        }}
     >
-      {props.children}
+        {props.children}
     </PersonsContext.Provider>
   );
 };

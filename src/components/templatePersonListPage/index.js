@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import Header from "../headerActorList";
-import FilterCard from "../filterActorsCard";
-import ActorList from "../actorList";
+import Header from "../headerPersonList";
+import FilterCard from "../filterPersonsCard";
+import PersonList from "../personList";
 import Grid from "@mui/material/Grid";
 
-function ActorListPageTemplate({ actors, title, action }) {
+function PersonListPageTemplate({ persons, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
   // const [combinedCreditFilter, setCombinedCreditFilter] = useState("0");
   // const combinedCreditId = Number(combinedCreditFilter);
 
-  let displayedActors = actors
+  let displayedPersons = persons
     .filter((m) => {
       return m.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
     });
@@ -32,10 +32,10 @@ function ActorListPageTemplate({ actors, title, action }) {
         {/*     combinedCreditFilter={combinedCreditFilter} */}
         {/*   /> */}
         {/* </Grid> */}
-        <ActorList action={action} actors={displayedActors}></ActorList>
+        <PersonList action={action} persons={displayedPersons}></PersonList>
       </Grid>
     </Grid>
   );
 }
 
-export default ActorListPageTemplate;
+export default PersonListPageTemplate;

@@ -20,7 +20,7 @@ const formControl =
     backgroundColor: "rgb(255, 255, 255)"
   };
 
-export default function FilterActorsCard(props) {
+export default function FilterPersonsCard(props) {
   const { data, error, isLoading, isError } = useQuery("combinedCredits", getCombinedCredits);
 
   if (isLoading) {
@@ -58,7 +58,7 @@ export default function FilterActorsCard(props) {
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
-          Filter the actors.
+          Filter the persons.
         </Typography>
         <TextField
           sx={formControl}
@@ -96,7 +96,7 @@ export default function FilterActorsCard(props) {
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
-          Filter the actors.
+          Filter the persons.
           <br />
         </Typography>
       </CardContent>

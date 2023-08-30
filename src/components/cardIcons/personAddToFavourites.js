@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { ActorsContext } from "../../contexts/actorsContext";
+import { PersonsContext } from "../../contexts/personsContext";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-const AddToFavouritesIcon = ({ actor }) => {
-  const context = useContext(ActorsContext);
+const AddToFavouritesIcon = ({ person }) => {
+  const context = useContext(PersonsContext);
 
   const handleAddToFavourites = (e) => {
     e.preventDefault();
-    context.addToFavourites(actor);
+    context.addToFavourites(person);
   };
 
   return (
