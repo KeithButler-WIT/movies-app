@@ -56,6 +56,26 @@ export const getMovie = (args) => {
     });
 };
 
+export const getMovieReviews = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+       `/api/movies/${id}/reviews`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
 export const getUpcomingMovies = () => {
     return fetch(
        `/api/movies/tmdb/upcoming`, {

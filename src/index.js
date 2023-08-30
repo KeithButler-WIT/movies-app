@@ -4,7 +4,7 @@ import {createRoot} from "react-dom/client";
 // import React from "react";
 // import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
-import { Movies, UpcomingMovies, PublicPage, Tvs, Persons, Profile } from "./pages/pages";
+import { Movies, PublicPage, Profile } from "./pages/pages";
 
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
@@ -17,7 +17,8 @@ import AuthHeader from "./authHeader";
 import ProtectedRoutes from "./protectedRoutes";
 import HomePage from "./pages/homePage";
 // import Movies from "./pages/movieDetailsPage";
-// import Tvs from "./pages/tvShowDetailsPage";
+import Tvs from "./pages/tvsPage";
+import Persons from "./pages/personsPage";
 // import Persons from "./pages/personDetailsPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
@@ -63,13 +64,14 @@ const App = () => {
                 <Route path="/login" element={ <LoginPage /> } />
                 <Route path="/signup" element={ <SignUpPage /> } />
                 <Route path="/movies" element={<Movies />} />
-                <Route path="/movies/tmdb/upcoming" element={<UpcomingMovies />} />
+                <Route path="/movies/tmdb/upcoming" element={<UpcomingMoviesPage />} />
                 <Route path="/movies/:id" element={<MoviePage />} />
+                <Route path="/movies/:id/reviews" element={<MovieReviewPage />} />
+                <Route path="/tvs" element={<Tvs />} />
+                <Route path="/persons" element={<Persons />} />
 
                 <Route element={<ProtectedRoutes />}>
                   {/* <Route path="/movies/favourites" element={<Movies />} /> */}
-                  <Route path="/tvs" element={<Tvs />} />
-                  <Route path="/persons" element={<Persons />} />
                   <Route path="/profile" element={<Profile />} />
                 </Route>
 

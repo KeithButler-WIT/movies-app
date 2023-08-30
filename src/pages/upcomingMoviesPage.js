@@ -20,9 +20,9 @@ const UpcomingMoviesPage = (props) => {
   const movies = data.results;
 
   // Redundant, but necessary to avoid app crashing.
-  const playlist = movies.filter(m => m.playlist)
-  localStorage.setItem('playlist', JSON.stringify(playlist))
-  const addToPlaylist = (movieId) => true
+  // const playlist = movies.filter(m => m.playlist)
+  // localStorage.setItem('playlist', JSON.stringify(playlist))
+  // const addToPlaylist = (movieId) => true
 
   return (
     <PageTemplate
@@ -31,7 +31,7 @@ const UpcomingMoviesPage = (props) => {
       action={(movie) => {
         return (
           <>
-            <AddToPlaylistIcon movie={movie} />
+            {/* <AddToPlaylistIcon movie={movie} /> */}
           </>
         );
       }}
