@@ -94,6 +94,156 @@ export const getUpcomingMovies = () => {
     });
 };
 
+// TODO: getUpcomingTvs
+// TODO: getGenres
+
+export const getGenres = () => {
+    return fetch(
+       `/api/genres`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            },
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
+// TODO: getGenre
+export const getGenre = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+       `/api/genres/${id}`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
+
+// TODO: getMovieImages
+
+export const getMovieImages = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+        `/api/movies/${id}/images`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
+// TODO: getMovieReviews
+// TODO: getPopularMovies
+
+export const getPopularMovies = () => {
+    return fetch(
+       `/api/movies/tmdb/popularMovies`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+// TODO: getActorImages
+
+export const getActorImages = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+       `/api/persons/${id}/images`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
+// TODO: getCombinedCredits
+export const getCombinedCredits = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+        `/api/persons/${id}/images`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
+// TODO: getPopularTvShows
+// TODO: getTvShowImages
+// TODO: getTvGenres
+
+export const getTvGenres = (args) => {
+    return fetch(
+        `/api/tvs/genres`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
 export const getPersons = () => {
     return fetch(
        `/api/persons`, {
