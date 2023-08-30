@@ -9,6 +9,7 @@ import { Movies, PublicPage, Profile } from "./pages/pages";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import MoviePage from "./pages/movieDetailsPage";
+import TvPage from "./pages/tvShowDetailsPage";
 // import MovieProvider from "./moviesContext";
 // import TvProvider from "./tvsContext";
 // import PersonProvider from "./personsContext";
@@ -64,10 +65,11 @@ const App = () => {
                 <Route path="/login" element={ <LoginPage /> } />
                 <Route path="/signup" element={ <SignUpPage /> } />
                 <Route path="/movies" element={<Movies />} />
-                <Route path="/movies/tmdb/upcoming" element={<UpcomingMoviesPage />} />
                 <Route path="/movies/:id" element={<MoviePage />} />
+                <Route path="/movies/tmdb/upcoming" element={<UpcomingMoviesPage />} />
                 <Route path="/movies/:id/reviews" element={<MovieReviewPage />} />
                 <Route path="/tvs" element={<Tvs />} />
+                <Route path="/tvs/:id" element={<TvShowDetailsPage />} />
                 <Route path="/persons" element={<Persons />} />
 
                 <Route element={<ProtectedRoutes />}>

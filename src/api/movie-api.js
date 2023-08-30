@@ -105,6 +105,7 @@ export const getGenres = () => {
             },
         }
     ).then( (res) => {
+        console.log("RESULTS: " + res)
         if (!res.ok) {
             throw new Error(res.json().message);
         }
@@ -150,6 +151,7 @@ export const getMovieImages = (args) => {
         }
     ).then( (res) => {
         if (!res.ok) {
+            console.log(res)
             throw new Error(res.json().message);
         }
         return res.json();
