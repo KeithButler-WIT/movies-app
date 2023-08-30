@@ -8,6 +8,7 @@ import { Movies, UpcomingMovies, PublicPage, Tvs, Persons, Profile } from "./pag
 
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
+import MoviePage from "./pages/movieDetailsPage";
 // import MovieProvider from "./moviesContext";
 // import TvProvider from "./tvsContext";
 // import PersonProvider from "./personsContext";
@@ -62,7 +63,8 @@ const App = () => {
                 <Route path="/login" element={ <LoginPage /> } />
                 <Route path="/signup" element={ <SignUpPage /> } />
                 <Route path="/movies" element={<Movies />} />
-                  <Route path="/movies/tmdb/upcoming" element={<UpcomingMovies />} />
+                <Route path="/movies/tmdb/upcoming" element={<UpcomingMovies />} />
+                <Route path="/movies/:id" element={<MoviePage />} />
 
                 <Route element={<ProtectedRoutes />}>
                   {/* <Route path="/movies/favourites" element={<Movies />} /> */}
