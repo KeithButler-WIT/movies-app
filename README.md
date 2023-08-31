@@ -1,5 +1,10 @@
 # Movies App
 
+​
+Name: Keith Butler
+
+Student Number: 20089137
+
 ## Description
 
 A react app that used the [Movies-Api](https://github.com/KeithButler-WIT/movies-api) to work.
