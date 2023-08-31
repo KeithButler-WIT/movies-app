@@ -10,25 +10,29 @@ A react app that used the [Movies-Api](https://github.com/KeithButler-WIT/movies
 
 ![Home Page](./images/HomePage.png)
 
-### Favourite Movies Page
+### Home Page
 
-![Favourite Movies Page](./images/FavMoviesPage.png)
+![Movie Details Page](./images/MovieDetailsPage.png)
+
+<!-- ### Favourite Movies Page -->
+
+<!-- ![Favourite Movies Page](./images/FavMoviesPage.png) -->
 
 ### Upcoming Movies Page
 
 ![Upcoming Movies Page](./images/UpcomingMoviesPage.png)
 
-### Popular Movies Page
+<!-- ### Popular Movies Page -->
 
-![Popular Movies Page](./images/PopularMoviesPage.png)
+<!-- ![Popular Movies Page](./images/PopularMoviesPage.png) -->
 
-### Movies Playlist Page
+<!-- ### Movies Playlist Page -->
 
-![Movies Playlist Page](./images/MoviesPlaylistPage.png)
+<!-- ![Movies Playlist Page](./images/MoviesPlaylistPage.png) -->
 
 ### Popular Tv Shows Page
 
-![Popular Tv Shows Page](./images/PopularTvShowsPage.png)
+![Tv Shows Page](./images/TvShowsPage.png)
 
 ### Tv Shows Details Page
 
@@ -38,9 +42,17 @@ A react app that used the [Movies-Api](https://github.com/KeithButler-WIT/movies
 
 ![Actors Page](./images/ActorsPage.png)
 
-### Favourite Actors Page
+<!-- ### Favourite Actors Page -->
 
-![Favourite Actors Page](./images/FavActorsPage.png)
+<!-- ![Favourite Actors Page](./images/FavActorsPage.png) -->
+
+### Login Page
+
+![Login Page](./images/LoginPage.png)
+
+### Signup Page
+
+![Signup Page](./images/SignupPage.png)
 
 ## Usage
 
