@@ -8,8 +8,6 @@ import { Movies, PublicPage, Profile } from "./pages/pages";
 
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
-import MoviePage from "./pages/movieDetailsPage";
-import TvPage from "./pages/tvShowDetailsPage";
 // import MovieProvider from "./moviesContext";
 // import TvProvider from "./tvsContext";
 // import PersonProvider from "./personsContext";
@@ -20,6 +18,8 @@ import HomePage from "./pages/homePage";
 // import Movies from "./pages/movieDetailsPage";
 import Tvs from "./pages/tvsPage";
 import Persons from "./pages/personsPage";
+import MoviePage from "./pages/movieDetailsPage";
+import TvPage from "./pages/tvShowDetailsPage";
 // import Persons from "./pages/personDetailsPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
@@ -66,10 +66,10 @@ const App = () => {
                 <Route path="/signup" element={ <SignUpPage /> } />
                 <Route path="/movies" element={<Movies />} />
                 <Route path="/movies/:id" element={<MoviePage />} />
-                <Route path="/movies/tmdb/upcoming" element={<UpcomingMoviesPage />} />
                 <Route path="/movies/:id/reviews" element={<MovieReviewPage />} />
+                <Route path="/movies/tmdb/upcoming" element={<UpcomingMoviesPage />} />
                 <Route path="/tvs" element={<Tvs />} />
-                <Route path="/tvs/:id" element={<TvShowDetailsPage />} />
+                <Route path="/tvs/:id" element={<TvPage />} />
                 <Route path="/persons" element={<Persons />} />
 
                 <Route element={<ProtectedRoutes />}>

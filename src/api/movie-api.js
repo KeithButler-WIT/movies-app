@@ -57,8 +57,10 @@ export const getMovie = (args) => {
 };
 
 export const getMovieReviews = (args) => {
-    const [, idPart] = args.queryKey;
-    const { id } = idPart;
+    console.log(args);
+    const id = args
+    // const [, idPart] = args;
+    // const { id } = idPart;
     return fetch(
        `/api/movies/${id}/reviews`, {
             headers: {
@@ -226,11 +228,12 @@ export const getCombinedCredits = (args) => {
 
 // TODO: getPopularTvShows
 // TODO: getTvShowImages
-// TODO: getTvGenres
 
-export const getTvGenres = (args) => {
+export const getTvShowImages = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
     return fetch(
-        `/api/tvs/genres`, {
+       `/api/tvs/${id}/images`, {
             headers: {
                 'Authorization': window.localStorage.getItem('token')
             }
@@ -245,6 +248,49 @@ export const getTvGenres = (args) => {
         throw error;
     });
 };
+
+// TODO: getTvGenres
+
+export const getTvGenres = (args) => {
+    return fetch(
+        `/api/tvs/genres`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            console.log(res)
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
+// TODO: getTvGenre
+export const getTvGenre = (args) => {
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
+    return fetch(
+       `/api/tv/${id}/genres/`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    ).then( (res) => {
+        if (!res.ok) {
+            throw new Error(res.json().message);
+        }
+        return res.json();
+    }).catch((error) => {
+        console.log(error);
+        throw error;
+    });
+};
+
 
 export const getPersons = () => {
     return fetch(

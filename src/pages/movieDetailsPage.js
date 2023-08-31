@@ -10,7 +10,7 @@ const MovieDetailsPage = (props) => {
   const { id } = useParams();
 
   const { data: movie, error, isLoading, isError } = useQuery(
-    ["movie", { id: id }],
+    ["movies", { id: id }],
     getMovie
   );
 
