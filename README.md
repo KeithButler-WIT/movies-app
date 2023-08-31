@@ -7,7 +7,8 @@ Student Number: 20089137
 
 ## Description
 
-A react app that used the [Movies-Api](https://github.com/KeithButler-WIT/movies-api) to work.
+A react app that uses the [Movies-Api](https://github.com/KeithButler-WIT/movies-api) to work.
+[Movies-Api](https://github.com/KeithButler-WIT/movies-api) is required for this app to function.
 
 ## Visuals
 
@@ -15,7 +16,7 @@ A react app that used the [Movies-Api](https://github.com/KeithButler-WIT/movies
 
 ![Home Page](./images/HomePage.png)
 
-### Home Page
+### Movie Details Page
 
 ![Movie Details Page](./images/MovieDetailsPage.png)
 
