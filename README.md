@@ -20,21 +20,9 @@ A react app that uses the [Movies-Api](https://github.com/KeithButler-WIT/movies
 
 ![Movie Details Page](./images/MovieDetailsPage.png)
 
-<!-- ### Favourite Movies Page -->
-
-<!-- ![Favourite Movies Page](./images/FavMoviesPage.png) -->
-
 ### Upcoming Movies Page
 
 ![Upcoming Movies Page](./images/UpcomingMoviesPage.png)
-
-<!-- ### Popular Movies Page -->
-
-<!-- ![Popular Movies Page](./images/PopularMoviesPage.png) -->
-
-<!-- ### Movies Playlist Page -->
-
-<!-- ![Movies Playlist Page](./images/MoviesPlaylistPage.png) -->
 
 ### Popular Tv Shows Page
 
@@ -47,10 +35,6 @@ A react app that uses the [Movies-Api](https://github.com/KeithButler-WIT/movies
 ### Actors Page
 
 ![Actors Page](./images/ActorsPage.png)
-
-<!-- ### Favourite Actors Page -->
-
-<!-- ![Favourite Actors Page](./images/FavActorsPage.png) -->
 
 ### Login Page
 
@@ -79,3 +63,10 @@ To run the storybook of the project use:
 ```sh
 npm run storybook
 ```
+
+## Security and Authentication
+
+Movies/Actors/Shows are not protected but the parameterised routes are protected and require the user to be signed in to view them.
+
+Users can register at route
+Then can authenticate at route
