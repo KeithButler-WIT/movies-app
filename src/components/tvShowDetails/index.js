@@ -8,6 +8,7 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
+// import TvReviews from "../tvReviews"
 
 
 const root = {
@@ -18,10 +19,11 @@ const root = {
     padding: 1.5,
     margin: 0,
 };
+
 const chip = { margin: 0.5 };
 
-const TvShowDetails = ({ show }) => {  // Don't miss this!
-  // const [drawerOpen, setDrawerOpen] = useState(false);
+const TvShowDetails = ({ show }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
@@ -40,14 +42,14 @@ const TvShowDetails = ({ show }) => {  // Don't miss this!
         <li>
           <Chip label="Genres" sx={chip} color="primary" />
         </li>
-        {show.genres.map((g) => (
+        {show.genre_ids.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} sx={chip} />
           </li>
         ))}
       </Paper>
       <Paper component="ul" sx={root}>
-        <Chip icon={<AccessTimeIcon />} label={`${show.episode_run_time} min.`} />
+        {/* <Chip icon={<AccessTimeIcon />} label={`${show.episode_run_time} min.`} /> */}
         {/* <Chip */}
         {/*   icon={<MonetizationIcon />} */}
         {/*   label={`${show.revenue.toLocaleString()}`} */}
@@ -62,15 +64,32 @@ const TvShowDetails = ({ show }) => {  // Don't miss this!
         component="ul"
         sx={root}
       >
-        <li>
-          <Chip label="Production Countries" sx={chip} color="primary" />
-        </li>
-        {show.production_countries.map((c) => (
-          <li key={c.name}>
-            <Chip label={c.name} sx={chip} />
-          </li>
-        ))}
+        {/* TODO ADD BACK ORIGIN COUNTRY */}
+        {/* <li> */}
+        {/*   <Chip label="Origin Country" sx={chip} color="primary" /> */}
+        {/* </li> */}
+        {/* {show.origin_country.map((c) => ( */}
+        {/*   <li key={c.origin_country}> */}
+        {/*     <Chip label={c.origin_country} sx={chip} /> */}
+        {/*   </li> */}
+        {/* ))} */}
       </Paper>
+     {/* <Fab */}
+     {/*    color="secondary" */}
+     {/*    variant="extended" */}
+     {/*    onClick={() =>setDrawerOpen(true)} */}
+     {/*    sx={{ */}
+     {/*      position: 'fixed', */}
+     {/*      bottom: '1em', */}
+     {/*      right: '1em' */}
+     {/*    }} */}
+     {/*  > */}
+     {/*    <NavigationIcon /> */}
+     {/*    Reviews */}
+     {/*  </Fab> */}
+     {/*  <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}> */}
+     {/*    <TvReviews show={show} /> */}
+     {/*  </Drawer> */}
     </>
   );
 };

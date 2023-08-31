@@ -76,7 +76,7 @@ export default function TvShowCard({ show, action }) {
         {/* <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}> */}
         {/*   <FavoriteIcon color="primary" fontSize="large" /> */}
         {/* </IconButton> */}
-        <Link to={`/tv/${show.id}`}>
+        <Link to={`/tvs/${show.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>

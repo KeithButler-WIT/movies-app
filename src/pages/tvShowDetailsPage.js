@@ -2,16 +2,16 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import TvShowDetails from "../components/tvShowDetails/";
 import PageTemplate from "../components/templateTvShowPage";
-import { getTvShow } from '../api/movie-api'
+import { getTv } from '../api/movie-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
-const TvShowDetailsPage = (props) => {
+const TvPage = (props) => {
   const { id } = useParams();
 
   const { data: show, error, isLoading, isError } = useQuery(
-    ["show", { id: id }],
-    getTvShow
+    ["shows", { id: id }],
+    getTv
   );
 
   if (isLoading) {
@@ -37,4 +37,4 @@ const TvShowDetailsPage = (props) => {
   );
 };
 
-export default TvShowDetailsPage;
+export default TvPage;
